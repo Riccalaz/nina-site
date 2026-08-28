@@ -731,24 +731,31 @@
                 );
         }
 
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.04);
+        }
+
         /*
             Placeholder fotografico.
             Quando avrai le foto vere puoi usare:
 
             <img src="images/nome.jpg">
         */
-
         .card-image::after {
-            content: "🌿";
-
+            content: "";
             position: absolute;
-
-            right: 18px;
-            bottom: 12px;
-
-            font-size: 35px;
-
-            opacity: 0.75;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 52%, rgba(35, 42, 24, 0.28));
+            pointer-events: none;
         }
 
         .image-1 {
@@ -973,35 +980,43 @@
         }
 
         .card-actions {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 14px;
-
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
             margin-top: 17px;
-
             padding-top: 13px;
-
             border-top: 1px solid var(--border);
         }
 
         .card-actions a {
-            font-size: 18px;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 8px 10px;
+            border-radius: 11px;
+            border: 1px solid var(--border);
+            background: #faf7f0;
             color: var(--olive-dark);
-
+            font-size: 12px;
+            font-weight: 800;
             transition: 0.2s;
         }
 
-        .card-actions a:hover {
-            color: var(--terracotta);
-
-            transform: scale(1.1);
+        .card-actions a.website {
+            background: var(--terracotta);
+            color: white;
+            border-color: var(--terracotta);
         }
 
-        .website {
-            color: var(--terracotta) !important;
+        .card-actions a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(68,57,39,0.12);
+        }
+
+        .card-actions a.website:hover {
+            background: var(--terracotta-dark);
+            border-color: var(--terracotta-dark);
         }
 
 
@@ -1561,6 +1576,12 @@
 
             <div class="card-image image-1">
 
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/77/b8/1b/alcuni-piatti-del-bistrot.jpg?h=500&s=1&w=900"
+                    alt="Foto di Colli Toscani Bistròt"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
+
                 <span class="bookmark">
                     ♡
                 </span>
@@ -1614,16 +1635,20 @@
                 <div class="card-actions">
 
                     <a
-                        class="website"
+                        class="action-button website"
                         href="https://www.collitoscanibistrot.com/"
-                        target="_blank">
-                        ◉
+                        target="_blank"
+                        data-it="🌐 Sito web"
+                        data-en="🌐 Website">
+                        🌐 Sito web
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Colli+Toscani+Bistrot+Orciano+Pisano"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -1643,6 +1668,12 @@
             data-search="la baracchina orciano panini focacce porchetta">
 
             <div class="card-image image-2">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/d6/9c/94/il-locale.jpg?h=-1&s=1&w=900"
+                    alt="Foto di La Baracchina"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -1697,16 +1728,20 @@
                 <div class="card-actions">
 
                     <a
-                        class="website"
+                        class="action-button website"
                         href="https://www.baracchina.com/"
-                        target="_blank">
-                        ◉
+                        target="_blank"
+                        data-it="🌐 Sito web"
+                        data-en="🌐 Website">
+                        🌐 Sito web
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=La+Baracchina+Orciano+Pisano"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -1726,6 +1761,12 @@
             data-search="fossederi agriturismo santa luce cucina toscana">
 
             <div class="card-image image-3">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/6b/15/16/esterno.jpg?h=500&s=1&w=900"
+                    alt="Foto di Agriturismo Fossederi"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -1779,16 +1820,20 @@
 
                 <div class="card-actions">
 
-                    <a
+                    <a class="action-button"
                         href="https://www.google.com/search?q=Agriturismo+Fossederi+Santa+Luce"
-                        target="_blank">
-                        ◎
+                        target="_blank"
+                        data-it="🔎 Info"
+                        data-en="🔎 Info">
+                        🔎 Info
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Fossederi+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -1808,6 +1853,12 @@
             data-search="podere cortesi mulinaccio santa luce agriturismo">
 
             <div class="card-image image-4">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/b9/3e/56/esterno-con-piscina.jpg?h=500&s=1&w=900"
+                    alt="Foto di Podere Cortesi Il Mulinaccio"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -1864,16 +1915,20 @@
                 <div class="card-actions">
 
                     <a
-                        class="website"
+                        class="action-button website"
                         href="https://www.poderecortesi.it/"
-                        target="_blank">
-                        ◉
+                        target="_blank"
+                        data-it="🌐 Sito web"
+                        data-en="🌐 Website">
+                        🌐 Sito web
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Podere+Cortesi+Il+Mulinaccio+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -1893,6 +1948,12 @@
             data-search="podere fornacino santa luce agriturismo cucina pesce">
 
             <div class="card-image image-5">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-s/01/c5/a6/47/esterni-e-giardino.jpg?h=500&s=1&w=900"
+                    alt="Foto di Podere Il Fornacino"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -1947,16 +2008,20 @@
                 <div class="card-actions">
 
                     <a
-                        class="website"
+                        class="action-button website"
                         href="https://podereilfornacino.org/"
-                        target="_blank">
-                        ◉
+                        target="_blank"
+                        data-it="🌐 Sito web"
+                        data-en="🌐 Website">
+                        🌐 Sito web
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Podere+Il+Fornacino+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -1976,6 +2041,12 @@
             data-search="mangia bevi ristobar santa luce ristorante">
 
             <div class="card-image image-6">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/12/8f/d3/caption.jpg?h=500&s=1&w=900"
+                    alt="Foto di Mangia & Bevi Ristobar"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -2029,16 +2100,20 @@
 
                 <div class="card-actions">
 
-                    <a
+                    <a class="action-button"
                         href="https://www.google.com/search?q=Mangia+Bevi+Ristobar+Santa+Luce"
-                        target="_blank">
-                        ◎
+                        target="_blank"
+                        data-it="🔎 Info"
+                        data-en="🔎 Info">
+                        🔎 Info
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Mangia+Bevi+Ristobar+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -2058,6 +2133,12 @@
             data-search="gino gina santa luce trattoria pizzeria pizza">
 
             <div class="card-image image-7">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/ec/fe/23/i.jpg?h=500&s=1&w=900"
+                    alt="Foto di Da Gino e Gina"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -2110,16 +2191,20 @@
 
                 <div class="card-actions">
 
-                    <a
+                    <a class="action-button"
                         href="https://www.google.com/search?q=Da+Gino+e+Gina+Santa+Luce"
-                        target="_blank">
-                        ◎
+                        target="_blank"
+                        data-it="🔎 Info"
+                        data-en="🔎 Info">
+                        🔎 Info
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Da+Gino+e+Gina+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -2139,6 +2224,12 @@
             data-search="la gozzetta pieve santa luce ristorante pizza">
 
             <div class="card-image image-8">
+
+                <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/ef/3f/8a/20180728-133215-hdr-largejpg.jpg?h=500&s=1&w=900"
+                    alt="Foto di La Gozzetta"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -2194,16 +2285,20 @@
                 <div class="card-actions">
 
                     <a
-                        class="website"
+                        class="action-button website"
                         href="https://www.lagozzetta.it/"
-                        target="_blank">
-                        ◉
+                        target="_blank"
+                        data-it="🌐 Sito web"
+                        data-en="🌐 Website">
+                        🌐 Sito web
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=La+Gozzetta+Pieve+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -2223,6 +2318,12 @@
             data-search="da dona santa luce bar trattoria pizzeria pizza">
 
             <div class="card-image image-9">
+
+                <img
+                    src="https://cdn.thefork.com/tf-lab/image/upload/w_500%2Ch_500%2Cc_fill%2Cq_auto%2Cf_jpg/restaurant/cc03b0bb-b7d2-48b5-9554-76b99585723a/d8350679-f832-47ec-b1b2-b9df89daf29f.webp"
+                    alt="Foto di Bar Trattoria Pizzeria Da Dona"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -2276,16 +2377,20 @@
 
                 <div class="card-actions">
 
-                    <a
-                        href="https://www.google.com/search?q=Da+Dona+Santa+Luce"
-                        target="_blank">
-                        ◎
+                    <a class="action-button"
+                        href="https://ristorantepizzeriadadona.it/"
+                        target="_blank"
+                        data-it="🔎 Info"
+                        data-en="🔎 Info">
+                        🔎 Info
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=Da+Dona+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -2305,6 +2410,12 @@
             data-search="agriosteria vvs pastina santa luce agriturismo">
 
             <div class="card-image image-10">
+
+                <img
+                    src="https://img3.restaurantguru.com/w550/h367/r527-AgriOsteria-VVS-design-2025-08.jpg"
+                    alt="Foto di AgriOsteria VVS"
+                    loading="lazy"
+                    referrerpolicy="no-referrer">
 
                 <span class="bookmark">
                     ♡
@@ -2359,16 +2470,20 @@
 
                 <div class="card-actions">
 
-                    <a
+                    <a class="action-button"
                         href="https://www.google.com/search?q=AgriOsteria+VVS+Pastina"
-                        target="_blank">
-                        ◎
+                        target="_blank"
+                        data-it="🔎 Info"
+                        data-en="🔎 Info">
+                        🔎 Info
                     </a>
 
-                    <a
+                    <a class="action-button map-button"
                         href="https://www.google.com/maps/search/?api=1&query=AgriOsteria+VVS+Pastina+Santa+Luce"
-                        target="_blank">
-                        📍
+                        target="_blank"
+                        data-it="📍 Indicazioni"
+                        data-en="📍 Directions">
+                        📍 Indicazioni
                     </a>
 
                 </div>
@@ -2956,6 +3071,10 @@
                     tag.textContent = tr.tags[tagIndex][language === "it" ? 0 : 1];
                 }
             });
+        });
+
+        document.querySelectorAll(".card-actions a[data-it][data-en]").forEach(button => {
+            button.textContent = button.dataset[language];
         });
 
         setText(".quote", t.quote);
