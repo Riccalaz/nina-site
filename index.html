@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guida ai migliori posti dove mangiare tra Orciano Pisano e Santa Luce, Toscana.">
+
+  <meta
+    name="description"
+    content="Guida ai migliori posti dove mangiare tra Orciano Pisano, Pieve di Santa Luce e Santa Luce, Toscana."
+  >
+
   <title>Mangiare tra Orciano Pisano e Santa Luce</title>
 
   <style>
+
+    /* =========================================================
+       VARIABILI
+    ========================================================= */
+
     :root {
       --bg: #f7f3ea;
       --paper: #fffdf8;
       --text: #26231f;
       --muted: #6d665d;
+
       --accent: #7b3f2d;
       --accent-dark: #5f2f22;
+
       --olive: #6e7650;
+      --olive-dark: #56603d;
+      --sage: #a8b08a;
+      --sage-light: #e5ead5;
+
       --border: #e7dfd2;
-      --shadow: 0 14px 40px rgba(55, 39, 28, 0.10);
+
+      --shadow:
+        0 14px 40px rgba(55, 39, 28, 0.10);
+
       --radius: 22px;
     }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
 
     * {
       box-sizing: border-box;
@@ -26,503 +51,1089 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
       background: var(--bg);
       color: var(--text);
+
       line-height: 1.6;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    /* HERO */
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
     .hero {
       min-height: 72vh;
+
       display: grid;
       place-items: center;
+
       position: relative;
       overflow: hidden;
+
       background:
-        linear-gradient(120deg, rgba(53, 38, 25, 0.78), rgba(88, 65, 47, 0.42)),
-        radial-gradient(circle at 20% 20%, #c7a57b 0 12%, transparent 30%),
-        radial-gradient(circle at 85% 75%, #70784f 0 10%, transparent 35%),
-        linear-gradient(135deg, #a77d58, #586047);
+        linear-gradient(
+          120deg,
+          rgba(53, 38, 25, 0.78),
+          rgba(88, 65, 47, 0.42)
+        ),
+
+        radial-gradient(
+          circle at 20% 20%,
+          #c7a57b 0 12%,
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 75%,
+          #70784f 0 10%,
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #a77d58,
+          #586047
+        );
     }
+
 
     .hero::before,
     .hero::after {
       content: "";
+
       position: absolute;
+
       border-radius: 50%;
+
       filter: blur(30px);
+
       opacity: 0.35;
     }
+
 
     .hero::before {
       width: 380px;
       height: 380px;
+
       background: #d8bb90;
+
       top: -140px;
       left: -80px;
     }
 
+
     .hero::after {
       width: 500px;
       height: 500px;
+
       background: #4c573b;
+
       right: -170px;
       bottom: -220px;
     }
 
+
     .hero-content {
       width: min(1100px, 92%);
+
       color: white;
+
       position: relative;
       z-index: 1;
+
       padding: 90px 0;
     }
 
+
     .eyebrow {
       display: inline-block;
+
       padding: 8px 13px;
+
       border: 1px solid rgba(255,255,255,0.35);
+
       border-radius: 999px;
+
       background: rgba(255,255,255,0.12);
+
       backdrop-filter: blur(5px);
+
       font-size: 0.86rem;
+
       font-weight: 700;
+
       letter-spacing: 0.04em;
+
       text-transform: uppercase;
     }
+
 
     .hero h1 {
       max-width: 860px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3rem, 7vw, 6.4rem);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(3rem, 7vw, 6.4rem);
+
       line-height: 0.98;
+
       margin: 25px 0 22px;
+
       letter-spacing: -0.04em;
     }
 
+
     .hero p {
       max-width: 740px;
-      font-size: clamp(1rem, 2vw, 1.22rem);
+
+      font-size:
+        clamp(1rem, 2vw, 1.22rem);
+
       color: rgba(255,255,255,0.88);
     }
 
+
+    /* =========================================================
+       HERO BUTTONS
+    ========================================================= */
+
     .hero-actions {
       margin-top: 32px;
+
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 12px;
+
+      align-items: center;
     }
+
 
     .btn {
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       min-height: 46px;
+
       padding: 0 18px;
+
       border-radius: 999px;
+
       border: 1px solid transparent;
+
       font-weight: 750;
+
       transition: 0.2s ease;
+
       cursor: pointer;
     }
+
 
     .btn-primary {
       background: white;
+
       color: var(--accent-dark);
     }
 
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+
+      box-shadow:
+        0 10px 24px rgba(0,0,0,0.15);
     }
+
 
     .btn-ghost {
-      border-color: rgba(255,255,255,0.35);
+      border-color:
+        rgba(255,255,255,0.35);
+
       color: white;
-      background: rgba(255,255,255,0.08);
+
+      background:
+        rgba(255,255,255,0.08);
     }
+
 
     .btn-ghost:hover {
-      background: rgba(255,255,255,0.14);
+      background:
+        rgba(255,255,255,0.14);
     }
 
-    /* MAIN */
+
+    /* =========================================================
+       LANGUAGE BUTTON
+    ========================================================= */
+
+    .language-toggle {
+      min-height: 46px;
+
+      padding: 0 17px;
+
+      border-radius: 999px;
+
+      border: 1px solid
+        rgba(255,255,255,0.45);
+
+      background:
+        rgba(255,255,255,0.12);
+
+      color: white;
+
+      font-size: 0.9rem;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(5px);
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .language-toggle:hover {
+      background:
+        rgba(255,255,255,0.23);
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.15);
+    }
+
+
+    body.english .language-toggle {
+      background: var(--olive);
+
+      border-color: var(--olive);
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
     main {
       width: min(1180px, 92%);
+
       margin: 0 auto;
+
       padding: 70px 0 90px;
     }
 
+
     .intro {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+
+      grid-template-columns:
+        1.2fr 0.8fr;
+
       gap: 30px;
+
       align-items: end;
+
       margin-bottom: 34px;
     }
 
+
     .section-label {
       color: var(--accent);
+
       font-size: 0.84rem;
+
       text-transform: uppercase;
+
       letter-spacing: 0.08em;
+
       font-weight: 800;
+
       margin-bottom: 8px;
     }
 
+
     .section-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(2.1rem, 4vw, 3.6rem);
+
       line-height: 1;
+
       margin-bottom: 12px;
     }
 
+
     .intro p {
       color: var(--muted);
+
       max-width: 720px;
     }
 
+
+    /* =========================================================
+       STATS
+    ========================================================= */
+
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 12px;
     }
 
+
     .stat {
       background: var(--paper);
+
       border: 1px solid var(--border);
+
       border-radius: 18px;
+
       padding: 17px;
+
       box-shadow: var(--shadow);
     }
 
+
     .stat strong {
       display: block;
+
       font-family: Georgia, serif;
+
       font-size: 1.9rem;
+
       color: var(--accent);
     }
 
+
     .stat span {
       color: var(--muted);
+
       font-size: 0.83rem;
     }
 
-    /* FILTERS */
+
+    /* =========================================================
+       TOOLBAR / FILTRI
+    ========================================================= */
+
     .toolbar {
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       flex-wrap: wrap;
+
       gap: 14px;
+
       margin: 30px 0;
     }
 
+
     .filters {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 8px;
     }
 
+
     .filter {
       border: 1px solid var(--border);
+
       background: var(--paper);
+
       color: var(--muted);
+
       border-radius: 999px;
+
       padding: 8px 14px;
+
       cursor: pointer;
+
       font-weight: 700;
+
+      transition: 0.2s ease;
     }
+
 
     .filter.active,
     .filter:hover {
       background: var(--accent);
+
       color: white;
+
       border-color: var(--accent);
     }
 
+
     .search {
-      min-width: min(320px, 100%);
+      min-width:
+        min(320px, 100%);
+
       flex: 1;
+
       max-width: 360px;
+
       border: 1px solid var(--border);
+
       background: var(--paper);
+
       border-radius: 999px;
+
       padding: 11px 16px;
+
       font: inherit;
+
       outline: none;
     }
 
+
     .search:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(123, 63, 45, 0.10);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(123, 63, 45, 0.10);
     }
 
-    /* CARDS */
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 22px;
     }
 
+
     .card {
       background: var(--paper);
+
       border: 1px solid var(--border);
+
       border-radius: var(--radius);
+
       overflow: hidden;
+
       box-shadow: var(--shadow);
+
       display: flex;
+
       flex-direction: column;
+
       transition: 0.22s ease;
     }
 
+
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 48px rgba(55, 39, 28, 0.15);
+
+      box-shadow:
+        0 20px 48px
+        rgba(55, 39, 28, 0.15);
     }
+
 
     .card-top {
       padding: 22px 22px 10px;
     }
 
+
     .badge-row {
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       gap: 8px;
     }
+
 
     .badge {
       display: inline-flex;
+
       align-items: center;
+
       padding: 6px 9px;
+
       border-radius: 999px;
+
       font-size: 0.75rem;
+
       font-weight: 800;
+
       background: #eee8dc;
+
       color: #665d51;
     }
 
+
     .badge.zone {
-      background: #e5ead5;
-      color: #56603d;
+      background: var(--sage-light);
+
+      color: var(--olive-dark);
     }
+
 
     .rating {
       font-weight: 850;
+
       color: var(--accent);
+
       white-space: nowrap;
     }
 
+
     .card h3 {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
       font-size: 1.75rem;
+
       line-height: 1.1;
+
       margin: 17px 0 8px;
     }
 
+
     .address {
       color: var(--muted);
+
       font-size: 0.9rem;
     }
+
 
     .description {
       color: #4b463f;
+
       padding: 0 22px 18px;
+
       flex: 1;
     }
 
+
     .tags {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 7px;
+
       padding: 0 22px 20px;
     }
 
+
     .tag {
       font-size: 0.75rem;
+
       border: 1px solid var(--border);
+
       border-radius: 999px;
+
       padding: 5px 8px;
+
       color: var(--muted);
     }
+
+
+    /* =========================================================
+       CARD ACTIONS
+    ========================================================= */
 
     .card-actions {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       gap: 8px;
+
       padding: 16px 22px 22px;
+
       border-top: 1px solid var(--border);
     }
+
 
     .card-actions a {
       display: inline-flex;
+
       justify-content: center;
+
       align-items: center;
+
       min-height: 42px;
+
       border-radius: 12px;
+
       font-weight: 800;
+
       border: 1px solid var(--border);
+
       background: #faf7f0;
+
       font-size: 0.87rem;
+
+      transition: 0.2s ease;
     }
+
 
     .card-actions a.primary {
       background: var(--accent);
+
       color: white;
+
       border-color: var(--accent);
     }
 
+
     .card-actions a:hover {
       filter: brightness(0.96);
+
       transform: translateY(-1px);
     }
 
-    /* NOTE */
+
+    /* =========================================================
+       NOTE
+    ========================================================= */
+
     .note {
       margin-top: 28px;
+
       padding: 18px 20px;
+
       border-radius: 18px;
+
       background: #efe7d7;
+
       border: 1px solid #e2d5bf;
+
       color: #5d564c;
+
       font-size: 0.9rem;
     }
 
-    /* FOOTER */
+
+    /* =========================================================
+       EMPTY SEARCH
+    ========================================================= */
+
+    .empty {
+      display: none;
+
+      margin: 30px 0;
+
+      padding: 35px;
+
+      text-align: center;
+
+      border: 1px dashed var(--border);
+
+      border-radius: 20px;
+
+      color: var(--muted);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
     footer {
       border-top: 1px solid var(--border);
+
       width: min(1180px, 92%);
+
       margin: 0 auto;
+
       padding: 30px 0 50px;
+
       color: var(--muted);
+
       font-size: 0.88rem;
     }
+
 
     footer strong {
       color: var(--text);
     }
 
-    .empty {
-      display: none;
-      margin: 30px 0;
-      padding: 35px;
-      text-align: center;
-      border: 1px dashed var(--border);
-      border-radius: 20px;
-      color: var(--muted);
-    }
 
-    /* RESPONSIVE */
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
     @media (max-width: 980px) {
+
       .cards {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, 1fr);
       }
+
 
       .intro {
         grid-template-columns: 1fr;
       }
+
     }
 
+
     @media (max-width: 680px) {
+
       .hero {
         min-height: 76vh;
       }
+
 
       .hero-content {
         padding: 65px 0;
       }
 
+
+      .hero-actions {
+        align-items: stretch;
+      }
+
+
+      .btn,
+      .language-toggle {
+        width: 100%;
+      }
+
+
       .cards {
         grid-template-columns: 1fr;
       }
+
 
       .stats {
         grid-template-columns: 1fr;
       }
 
+
       .toolbar {
         align-items: stretch;
       }
 
+
       .search {
         max-width: none;
       }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
   <header class="hero">
+
     <div class="hero-content">
-      <span class="eyebrow">Guida gastronomica • Toscana</span>
 
-      <h1>Mangiare bene tra Orciano Pisano e Santa Luce</h1>
+      <span
+        class="eyebrow"
+        data-it="Guida gastronomica • Toscana"
+        data-en="Food guide • Tuscany"
+      >
+        Guida gastronomica • Toscana
+      </span>
 
-      <p>
+
+      <h1
+        data-it="Mangiare bene tra Orciano Pisano e Santa Luce"
+        data-en="Eating well around Orciano Pisano and Santa Luce"
+      >
+        Mangiare bene tra Orciano Pisano e Santa Luce
+      </h1>
+
+
+      <p
+        data-it="Una selezione di ristoranti, bistrot e agriturismi della zona, scelta per aiutarti a trovare il posto giusto per una cena toscana, una pizza, un pranzo informale o una pausa in campagna."
+        data-en="A selection of restaurants, bistros and farmhouses in the area, chosen to help you find the perfect place for a Tuscan dinner, a pizza, an informal lunch or a relaxing break in the countryside."
+      >
         Una selezione di ristoranti, bistrot e agriturismi della zona,
         scelta per aiutarti a trovare il posto giusto per una cena toscana,
         una pizza, un pranzo informale o una pausa in campagna.
       </p>
 
+
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#posti">Scopri i posti</a>
-        <a class="btn btn-ghost" href="#info">Come usare la guida</a>
+
+        <a
+          class="btn btn-primary"
+          href="#posti"
+          data-it="Scopri i posti"
+          data-en="Discover the places"
+        >
+          Scopri i posti
+        </a>
+
+
+        <a
+          class="btn btn-ghost"
+          href="#info"
+          data-it="Come usare la guida"
+          data-en="How to use the guide"
+        >
+          Come usare la guida
+        </a>
+
+
+        <button
+          id="languageToggle"
+          class="language-toggle"
+          type="button"
+        >
+          🇬🇧 EN
+        </button>
+
       </div>
+
     </div>
+
   </header>
 
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
   <main>
+
     <section id="posti">
+
+
+      <!-- INTRO -->
+
       <div class="intro">
+
         <div>
-          <div class="section-label">La selezione</div>
-          <h2 class="section-title">Dove fermarsi a mangiare</h2>
-          <p>
+
+          <div
+            class="section-label"
+            data-it="La selezione"
+            data-en="Our selection"
+          >
+            La selezione
+          </div>
+
+
+          <h2
+            class="section-title"
+            data-it="Dove fermarsi a mangiare"
+            data-en="Where to eat"
+          >
+            Dove fermarsi a mangiare
+          </h2>
+
+
+          <p
+            data-it="Le informazioni qui sotto sono pensate come una guida pratica: trovi indirizzo, zona, tipo di cucina e collegamenti utili. I link esterni si aprono in una nuova scheda."
+            data-en="The information below is designed as a practical guide: you will find the address, area, type of cuisine and useful links. External links open in a new tab."
+          >
             Le informazioni qui sotto sono pensate come una guida pratica:
             trovi indirizzo, zona, tipo di cucina e collegamenti utili.
             I link esterni si aprono in una nuova scheda.
           </p>
+
         </div>
+
+
+        <!-- STATS -->
 
         <div class="stats">
+
           <div class="stat">
+
             <strong>10</strong>
-            <span>posti selezionati</span>
+
+            <span
+              data-it="posti selezionati"
+              data-en="selected places"
+            >
+              posti selezionati
+            </span>
+
           </div>
+
+
           <div class="stat">
-            <strong>2</strong>
-            <span>zone principali</span>
+
+            <strong>3</strong>
+
+            <span
+              data-it="zone principali"
+              data-en="main areas"
+            >
+              zone principali
+            </span>
+
           </div>
+
+
           <div class="stat">
+
             <strong>∞</strong>
-            <span>possibilità per mangiare</span>
+
+            <span
+              data-it="possibilità per mangiare"
+              data-en="ways to enjoy local food"
+            >
+              possibilità per mangiare
+            </span>
+
           </div>
+
         </div>
+
       </div>
 
+
+      <!-- ===================================================
+           TOOLBAR
+      ==================================================== -->
+
       <div class="toolbar">
+
+
         <div class="filters">
-          <button class="filter active" data-filter="all">Tutti</button>
-          <button class="filter" data-filter="orciano">Orciano Pisano</button>
-          <button class="filter" data-filter="pieve">Pieve / Pastina</button>
-          <button class="filter" data-filter="santa-luce">Santa Luce</button>
-          <button class="filter" data-filter="ristorante">Ristorante</button>
-          <button class="filter" data-filter="pizza">Pizza</button>
-          <button class="filter" data-filter="agriturismo">Agriturismo</button>
+
+          <button
+            class="filter active"
+            data-filter="all"
+            data-it="Tutti"
+            data-en="All"
+          >
+            Tutti
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="orciano"
+            data-it="Orciano Pisano"
+            data-en="Orciano Pisano"
+          >
+            Orciano Pisano
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="pieve"
+            data-it="Pieve / Pastina"
+            data-en="Pieve / Pastina"
+          >
+            Pieve / Pastina
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="santa-luce"
+            data-it="Santa Luce"
+            data-en="Santa Luce"
+          >
+            Santa Luce
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="ristorante"
+            data-it="Ristorante"
+            data-en="Restaurant"
+          >
+            Ristorante
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="pizza"
+            data-it="Pizza"
+            data-en="Pizza"
+          >
+            Pizza
+          </button>
+
+
+          <button
+            class="filter"
+            data-filter="agriturismo"
+            data-it="Agriturismo"
+            data-en="Farmhouse"
+          >
+            Agriturismo
+          </button>
+
         </div>
+
 
         <input
           id="search"
@@ -530,428 +1141,1534 @@
           type="search"
           placeholder="Cerca un nome, una cucina..."
           aria-label="Cerca un posto"
+          data-placeholder-it="Cerca un nome, una cucina..."
+          data-placeholder-en="Search by name or cuisine..."
         >
+
       </div>
+
+
+      <!-- ===================================================
+           CARDS
+      ==================================================== -->
 
       <div class="cards" id="cards">
 
-        <!-- 1 -->
-        <article class="card" data-zone="orciano" data-type="ristorante" data-search="colli toscani bistrot orciano pisano italiana mediterranea pizza toscana">
+
+        <!-- =================================================
+             1 - COLLI TOSCANI
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="orciano"
+          data-type="ristorante"
+          data-search="colli toscani bistrot orciano pisano italiana italian mediterranea mediterranean pizza toscana tuscan"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Orciano Pisano</span>
-              <span class="rating">★ 4,7/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Orciano Pisano"
+                data-en="Orciano Pisano"
+              >
+                Orciano Pisano
+              </span>
+
+              <span class="rating">
+                ★ 4,7/5
+              </span>
+
             </div>
-            <h3>Colli Toscani Bistròt</h3>
-            <div class="address">Via dell'Uccelliera 3, 56040 Orciano Pisano (PI)</div>
+
+
+            <h3>
+              Colli Toscani Bistròt
+            </h3>
+
+
+            <div
+              class="address"
+              data-it="Via dell'Uccelliera 3, 56040 Orciano Pisano (PI)"
+              data-en="Via dell'Uccelliera 3, 56040 Orciano Pisano (PI)"
+            >
+              Via dell'Uccelliera 3,
+              56040 Orciano Pisano (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Un bistrot con cucina italiana e mediterranea, con proposte toscane
-            e pizza. È una buona scelta per una cena completa, ma anche per chi
-            cerca qualcosa di più informale senza rinunciare alla cucina locale.
+
+          <p
+            class="description"
+            data-it="Un bistrot con cucina italiana e mediterranea, con proposte toscane e pizza. È una buona scelta per una cena completa, ma anche per chi cerca qualcosa di più informale senza rinunciare alla cucina locale."
+            data-en="An Italian and Mediterranean bistro offering Tuscan dishes and pizza. A good choice for a complete dinner or for those looking for something more informal while still enjoying local cuisine."
+          >
+            Un bistrot con cucina italiana e mediterranea,
+            con proposte toscane e pizza.
+            È una buona scelta per una cena completa,
+            ma anche per chi cerca qualcosa di più informale
+            senza rinunciare alla cucina locale.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Toscana</span>
-            <span class="tag">Pizza</span>
-            <span class="tag">Mediterranea</span>
-            <span class="tag">Vegetariano</span>
+
+            <span class="tag"
+              data-it="Toscana"
+              data-en="Tuscan"
+            >Toscana</span>
+
+            <span class="tag"
+              data-it="Pizza"
+              data-en="Pizza"
+            >Pizza</span>
+
+            <span class="tag"
+              data-it="Mediterranea"
+              data-en="Mediterranean"
+            >Mediterranea</span>
+
+            <span class="tag"
+              data-it="Vegetariano"
+              data-en="Vegetarian"
+            >Vegetariano</span>
+
           </div>
+
 
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.collitoscanibistrot.com/">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.collitoscanibistrot.com/"
+              data-it="Sito web"
+              data-en="Website"
+            >
               Sito web
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Colli+Toscani+Bistrot%2C+Via+dell%27Uccelliera+3%2C+Orciano+Pisano+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Colli+Toscani+Bistrot%2C+Via+dell%27Uccelliera+3%2C+Orciano+Pisano+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 2 -->
-        <article class="card" data-zone="orciano" data-type="ristorante" data-search="la baracchina orciano pisano focaccia porchetta panini">
+
+        <!-- =================================================
+             2 - LA BARACCHINA
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="orciano"
+          data-type="ristorante"
+          data-search="la baracchina orciano pisano focaccia porchetta panini sandwiches lunch pranzo"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Orciano Pisano</span>
-              <span class="rating">★ 4,6/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Orciano Pisano"
+                data-en="Orciano Pisano"
+              >
+                Orciano Pisano
+              </span>
+
+              <span class="rating">
+                ★ 4,6/5
+              </span>
+
             </div>
-            <h3>La Baracchina</h3>
-            <div class="address">Via Provinciale di Orciano Sud 7, 56040 Orciano Pisano (PI)</div>
+
+
+            <h3>
+              La Baracchina
+            </h3>
+
+
+            <div class="address">
+              Via Provinciale di Orciano Sud 7,
+              56040 Orciano Pisano (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Perfetta per un pranzo o una sosta informale: panini, focacce,
-            porchetta, salumi e formaggi sono tra le specialità associate
-            al locale. Una scelta semplice e molto adatta a chi vuole
+
+          <p
+            class="description"
+            data-it="Perfetta per un pranzo o una sosta informale: panini, focacce, porchetta, salumi e formaggi sono tra le specialità associate al locale. Una scelta semplice e molto adatta a chi vuole assaggiare sapori toscani senza una cena impegnativa."
+            data-en="Perfect for lunch or an informal stop: sandwiches, focaccia, porchetta, cured meats and cheeses are among the local specialties. A simple choice for those who want to taste Tuscan flavors without having a full dinner."
+          >
+            Perfetta per un pranzo o una sosta informale:
+            panini, focacce, porchetta, salumi e formaggi
+            sono tra le specialità associate al locale.
+            Una scelta semplice e molto adatta a chi vuole
             assaggiare sapori toscani senza una cena impegnativa.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Panini</span>
-            <span class="tag">Focacce</span>
-            <span class="tag">Porchetta</span>
-            <span class="tag">Pranzo</span>
+
+            <span class="tag"
+              data-it="Panini"
+              data-en="Sandwiches"
+            >Panini</span>
+
+            <span class="tag"
+              data-it="Focacce"
+              data-en="Focaccia"
+            >Focacce</span>
+
+            <span class="tag"
+              data-it="Porchetta"
+              data-en="Porchetta"
+            >Porchetta</span>
+
+            <span class="tag"
+              data-it="Pranzo"
+              data-en="Lunch"
+            >Pranzo</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.baracchina.com/">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.baracchina.com/"
+              data-it="Sito web"
+              data-en="Website"
+            >
               Sito web
             </a>
-            <a target="_blank" rel="noopener" href="https://www.instagram.com/labaracchinaorciano/">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.instagram.com/labaracchinaorciano/"
+              data-it="Instagram"
+              data-en="Instagram"
+            >
               Instagram
             </a>
+
           </div>
+
         </article>
 
-        <!-- 3 -->
-        <article class="card" data-zone="santa-luce" data-type="agriturismo" data-search="agriturismo fossederi santa luce cucina tipica toscana campagna">
+
+        <!-- =================================================
+             3 - FOSSEDERI
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="agriturismo"
+          data-search="agriturismo farmhouse fossederi santa luce cucina tipica toscana tuscan campagna countryside"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 5,0/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 5,0/5
+              </span>
+
             </div>
-            <h3>Agriturismo Fossederi</h3>
-            <div class="address">Via del Lago 2, 56040 Santa Luce (PI)</div>
+
+
+            <h3>
+              Agriturismo Fossederi
+            </h3>
+
+
+            <div class="address">
+              Via del Lago 2,
+              56040 Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Un agriturismo immerso nella campagna delle colline pisane, legato
-            alla tradizione agricola locale. La struttura presenta una cucina
-            tipica toscana e un contesto rurale particolarmente adatto a chi
-            cerca un'esperienza tranquilla e legata al territorio.
+
+          <p
+            class="description"
+            data-it="Un agriturismo immerso nella campagna delle colline pisane, legato alla tradizione agricola locale. La struttura presenta una cucina tipica toscana e un contesto rurale particolarmente adatto a chi cerca un'esperienza tranquilla e legata al territorio."
+            data-en="A farmhouse surrounded by the countryside of the Pisan hills and connected to local agricultural traditions. It offers typical Tuscan cuisine in a peaceful rural setting, ideal for those looking for an authentic experience."
+          >
+            Un agriturismo immerso nella campagna
+            delle colline pisane, legato alla tradizione agricola locale.
+            La struttura presenta una cucina tipica toscana
+            e un contesto rurale particolarmente adatto
+            a chi cerca un'esperienza tranquilla e legata al territorio.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Agriturismo</span>
-            <span class="tag">Cucina toscana</span>
-            <span class="tag">Campagna</span>
-            <span class="tag">Km 0</span>
+
+            <span class="tag"
+              data-it="Agriturismo"
+              data-en="Farmhouse"
+            >Agriturismo</span>
+
+            <span class="tag"
+              data-it="Cucina toscana"
+              data-en="Tuscan cuisine"
+            >Cucina toscana</span>
+
+            <span class="tag"
+              data-it="Campagna"
+              data-en="Countryside"
+            >Campagna</span>
+
+            <span class="tag"
+              data-it="Km 0"
+              data-en="Local produce"
+            >Km 0</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/search?q=Agriturismo+Fossederi+Santa+Luce">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/search?q=Agriturismo+Fossederi+Santa+Luce"
+              data-it="Cerca online"
+              data-en="Search online"
+            >
               Cerca online
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Fossederi%2C+Via+del+Lago+2%2C+Santa+Luce+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Fossederi%2C+Via+del+Lago+2%2C+Santa+Luce+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 4 - Pieve di Santa Luce -->
-        <article class="card" data-zone="pieve" data-type="pizza" data-search="la gozzetta pieve santa luce pizza cucina toscana ristorante locanda">
+
+        <!-- =================================================
+             4 - LA GOZZETTA
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="pieve"
+          data-type="pizza"
+          data-search="la gozzetta pieve santa luce pizza cucina toscana tuscan ristorante restaurant locanda inn"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Pieve di Santa Luce</span>
-              <span class="rating">★ 4,0/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Pieve di Santa Luce"
+                data-en="Pieve di Santa Luce"
+              >
+                Pieve di Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,0/5
+              </span>
+
             </div>
-            <h3>La Gozzetta</h3>
-            <div class="address">Via delle Colline 8, 56040 Pieve di Santa Luce (PI)</div>
+
+
+            <h3>
+              La Gozzetta
+            </h3>
+
+
+            <div class="address">
+              Via delle Colline 8,
+              56040 Pieve di Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Locanda e ristorante immersi nelle colline pisane. La Gozzetta propone
-            pizza e cucina toscana in un ambiente informale, con veranda estiva,
-            bar e una vista sulle campagne e sui campi di lavanda circostanti.
-            È il locale più direttamente associato alla frazione di Pieve di Santa Luce.
+
+          <p
+            class="description"
+            data-it="Locanda e ristorante immersi nelle colline pisane. La Gozzetta propone pizza e cucina toscana in un ambiente informale, con veranda estiva, bar e una vista sulle campagne e sui campi di lavanda circostanti. È il locale più direttamente associato alla frazione di Pieve di Santa Luce."
+            data-en="An inn and restaurant surrounded by the Pisan hills. La Gozzetta offers pizza and Tuscan cuisine in a relaxed setting, with a summer veranda, bar and views of the surrounding countryside and lavender fields. It is the restaurant most directly associated with Pieve di Santa Luce."
+          >
+            Locanda e ristorante immersi nelle colline pisane.
+            La Gozzetta propone pizza e cucina toscana
+            in un ambiente informale, con veranda estiva,
+            bar e una vista sulle campagne e sui campi
+            di lavanda circostanti.
+            È il locale più direttamente associato
+            alla frazione di Pieve di Santa Luce.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Pizza</span>
-            <span class="tag">Cucina toscana</span>
-            <span class="tag">Locanda</span>
-            <span class="tag">Veranda</span>
+
+            <span class="tag"
+              data-it="Pizza"
+              data-en="Pizza"
+            >Pizza</span>
+
+            <span class="tag"
+              data-it="Cucina toscana"
+              data-en="Tuscan cuisine"
+            >Cucina toscana</span>
+
+            <span class="tag"
+              data-it="Locanda"
+              data-en="Inn"
+            >Locanda</span>
+
+            <span class="tag"
+              data-it="Veranda"
+              data-en="Veranda"
+            >Veranda</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.lagozzetta.it/">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.lagozzetta.it/"
+              data-it="Sito web"
+              data-en="Website"
+            >
               Sito web
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=La+Gozzetta%2C+Via+delle+Colline+8%2C+Pieve+di+Santa+Luce+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=La+Gozzetta%2C+Via+delle+Colline+8%2C+Pieve+di+Santa+Luce+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 5 - Santa Luce / centro -->
-        <article class="card" data-zone="santa-luce" data-type="ristorante" data-search="da dona santa luce bar trattoria pizzeria pizza cucina italiana">
+
+        <!-- =================================================
+             5 - DA DONA
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="ristorante"
+          data-search="da dona santa luce bar trattoria pizzeria pizza cucina italiana italian restaurant"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 4,0/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,0/5
+              </span>
+
             </div>
-            <h3>Bar Trattoria Pizzeria Da Dona</h3>
-            <div class="address">Piazza Rimembranza, 56040 Santa Luce (PI)</div>
+
+
+            <h3>
+              Bar Trattoria Pizzeria Da Dona
+            </h3>
+
+
+            <div class="address">
+              Piazza Rimembranza,
+              56040 Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Bar, trattoria e pizzeria nel centro di Santa Luce. Una soluzione
-            semplice e informale per una sosta durante la giornata, con un'offerta
-            orientata alla cucina italiana e alla pizza.
+
+          <p
+            class="description"
+            data-it="Bar, trattoria e pizzeria nel centro di Santa Luce. Una soluzione semplice e informale per una sosta durante la giornata, con un'offerta orientata alla cucina italiana e alla pizza."
+            data-en="A bar, trattoria and pizzeria in the center of Santa Luce. A simple and informal option for a meal during the day, offering Italian cuisine and pizza."
+          >
+            Bar, trattoria e pizzeria nel centro di Santa Luce.
+            Una soluzione semplice e informale per una sosta
+            durante la giornata, con un'offerta orientata
+            alla cucina italiana e alla pizza.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Trattoria</span>
-            <span class="tag">Pizza</span>
-            <span class="tag">Bar</span>
-            <span class="tag">Informale</span>
+
+            <span class="tag"
+              data-it="Trattoria"
+              data-en="Trattoria"
+            >Trattoria</span>
+
+            <span class="tag"
+              data-it="Pizza"
+              data-en="Pizza"
+            >Pizza</span>
+
+            <span class="tag"
+              data-it="Bar"
+              data-en="Bar"
+            >Bar</span>
+
+            <span class="tag"
+              data-it="Informale"
+              data-en="Casual"
+            >Informale</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/search?q=Bar+Trattoria+Pizzeria+Da+Dona+Santa+Luce">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/search?q=Bar+Trattoria+Pizzeria+Da+Dona+Santa+Luce"
+              data-it="Cerca online"
+              data-en="Search online"
+            >
               Cerca online
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bar+Trattoria+Pizzeria+Da+Dona%2C+Piazza+Rimembranza%2C+Santa+Luce+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Bar+Trattoria+Pizzeria+Da+Dona%2C+Piazza+Rimembranza%2C+Santa+Luce+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 6 - Pastina / zona Pieve -->
-        <article class="card" data-zone="pieve" data-type="agriturismo" data-search="agriosteria vvs pastina santa luce agriturismo ristorante mediterranea salutistica">
+
+        <!-- =================================================
+             6 - AGRIOSTERIA VVS
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="pieve"
+          data-type="agriturismo"
+          data-search="agriosteria vvs pastina santa luce agriturismo farmhouse ristorante restaurant mediterranea mediterranean"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Zona Pieve / Pastina</span>
-              <span class="rating">★ 4,8/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Zona Pieve / Pastina"
+                data-en="Pieve / Pastina area"
+              >
+                Zona Pieve / Pastina
+              </span>
+
+              <span class="rating">
+                ★ 4,8/5
+              </span>
+
             </div>
-            <h3>AgriOsteria VVS</h3>
-            <div class="address">Via del Commercio Sud 75, Piazza della Chiesa, 56040 Pastina (PI)</div>
+
+
+            <h3>
+              AgriOsteria VVS
+            </h3>
+
+
+            <div class="address">
+              Via del Commercio Sud 75,
+              Piazza della Chiesa,
+              56040 Pastina (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Agriosteria e agriturismo nella vicina frazione di Pastina, interessante
-            per chi vuole ampliare la ricerca ai dintorni della Pieve. Le recensioni
-            disponibili la descrivono con cucina italiana e mediterranea e una
-            proposta attenta anche a esigenze salutistiche.
+
+          <p
+            class="description"
+            data-it="Agriosteria e agriturismo nella vicina frazione di Pastina, interessante per chi vuole ampliare la ricerca ai dintorni della Pieve. Le recensioni disponibili la descrivono con cucina italiana e mediterranea e una proposta attenta anche a esigenze salutistiche."
+            data-en="A farmhouse and osteria in the nearby village of Pastina, ideal for those who want to explore the area around Pieve. Available reviews describe Italian and Mediterranean cuisine with attention to healthier dining options."
+          >
+            Agriosteria e agriturismo nella vicina frazione di Pastina,
+            interessante per chi vuole ampliare la ricerca ai dintorni
+            della Pieve. Le recensioni disponibili la descrivono
+            con cucina italiana e mediterranea e una proposta
+            attenta anche a esigenze salutistiche.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Agriturismo</span>
-            <span class="tag">Osteria</span>
-            <span class="tag">Mediterranea</span>
-            <span class="tag">Pastina</span>
+
+            <span class="tag"
+              data-it="Agriturismo"
+              data-en="Farmhouse"
+            >Agriturismo</span>
+
+            <span class="tag"
+              data-it="Osteria"
+              data-en="Osteria"
+            >Osteria</span>
+
+            <span class="tag"
+              data-it="Mediterranea"
+              data-en="Mediterranean"
+            >Mediterranea</span>
+
+            <span class="tag"
+              data-it="Pastina"
+              data-en="Pastina"
+            >Pastina</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/search?q=AgriOsteria+VVS+Pastina+Santa+Luce">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/search?q=AgriOsteria+VVS+Pastina+Santa+Luce"
+              data-it="Cerca online"
+              data-en="Search online"
+            >
               Cerca online
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=AgriOsteria+VVS%2C+Via+del+Commercio+Sud+75%2C+Pastina+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=AgriOsteria+VVS%2C+Via+del+Commercio+Sud+75%2C+Pastina+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 7 -->
-        <article class="card" data-zone="santa-luce" data-type="agriturismo" data-search="podere cortesi il mulinaccio santa luce agriturismo cucina toscana campagna">
+
+        <!-- =================================================
+             7 - PODERE CORTESI
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="agriturismo"
+          data-search="podere cortesi il mulinaccio santa luce agriturismo farmhouse cucina toscana tuscan campagna countryside"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 4,7/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,7/5
+              </span>
+
             </div>
-            <h3>Podere Cortesi — Il Mulinaccio</h3>
-            <div class="address">Via di Casimarsi 8, 56040 Pastina, Santa Luce (PI)</div>
+
+
+            <h3>
+              Podere Cortesi — Il Mulinaccio
+            </h3>
+
+
+            <div class="address">
+              Via di Casimarsi 8,
+              56040 Pastina, Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Agriturismo immerso nella campagna pisana che comprende anche un
-            ristorante. La famiglia Cortesi coltiva la propria terra e il sito
-            della struttura presenta una cucina legata ai prodotti dell'azienda
-            agricola e alla tradizione toscana.
+
+          <p
+            class="description"
+            data-it="Agriturismo immerso nella campagna pisana che comprende anche un ristorante. La famiglia Cortesi coltiva la propria terra e il sito della struttura presenta una cucina legata ai prodotti dell'azienda agricola e alla tradizione toscana."
+            data-en="A farmhouse surrounded by the Pisan countryside that also includes a restaurant. The Cortesi family cultivates its own land, with cuisine connected to farm products and Tuscan traditions."
+          >
+            Agriturismo immerso nella campagna pisana
+            che comprende anche un ristorante.
+            La famiglia Cortesi coltiva la propria terra
+            e il sito della struttura presenta una cucina
+            legata ai prodotti dell'azienda agricola
+            e alla tradizione toscana.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Agriturismo</span>
-            <span class="tag">Toscana</span>
-            <span class="tag">Campagna</span>
-            <span class="tag">Prodotti agricoli</span>
+
+            <span class="tag"
+              data-it="Agriturismo"
+              data-en="Farmhouse"
+            >Agriturismo</span>
+
+            <span class="tag"
+              data-it="Toscana"
+              data-en="Tuscan"
+            >Toscana</span>
+
+            <span class="tag"
+              data-it="Campagna"
+              data-en="Countryside"
+            >Campagna</span>
+
+            <span class="tag"
+              data-it="Prodotti agricoli"
+              data-en="Farm produce"
+            >Prodotti agricoli</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.poderecortesi.it/">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.poderecortesi.it/"
+              data-it="Sito web"
+              data-en="Website"
+            >
               Sito web
             </a>
-            <a target="_blank" rel="noopener" href="https://www.instagram.com/poderecortesi_ilmolinaccio/">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.instagram.com/poderecortesi_ilmolinaccio/"
+              data-it="Instagram"
+              data-en="Instagram"
+            >
               Instagram
             </a>
+
           </div>
+
         </article>
 
-        <!-- 5 -->
-        <article class="card" data-zone="santa-luce" data-type="ristorante" data-search="podere il fornacino santa luce pesce mediterranea italiana">
+
+        <!-- =================================================
+             8 - PODERE IL FORNACINO
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="ristorante"
+          data-search="podere il fornacino santa luce pesce seafood mediterranea mediterranean italiana italian restaurant agriturismo farmhouse"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 4,9/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,9/5
+              </span>
+
             </div>
-            <h3>Agriturismo Podere Il Fornacino</h3>
-            <div class="address">Via del Commercio Nord 11, 56040 Santa Luce (PI)</div>
+
+
+            <h3>
+              Agriturismo Podere Il Fornacino
+            </h3>
+
+
+            <div class="address">
+              Via del Commercio Nord 11,
+              56040 Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Una scelta interessante per chi cerca una proposta più ricercata:
-            le informazioni disponibili lo descrivono come locale di cucina
-            italiana e mediterranea con specialità di mare e opzioni vegetariane,
+
+          <p
+            class="description"
+            data-it="Una scelta interessante per chi cerca una proposta più ricercata: le informazioni disponibili lo descrivono come locale di cucina italiana e mediterranea con specialità di mare e opzioni vegetariane, in un contesto agrituristico."
+            data-en="An interesting choice for those looking for a more refined dining experience: available information describes Italian and Mediterranean cuisine, seafood specialties and vegetarian options in a farmhouse setting."
+          >
+            Una scelta interessante per chi cerca
+            una proposta più ricercata:
+            le informazioni disponibili lo descrivono
+            come locale di cucina italiana e mediterranea
+            con specialità di mare e opzioni vegetariane,
             in un contesto agrituristico.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Pesce</span>
-            <span class="tag">Mediterranea</span>
-            <span class="tag">Vegetariano</span>
-            <span class="tag">Agriturismo</span>
+
+            <span class="tag"
+              data-it="Pesce"
+              data-en="Seafood"
+            >Pesce</span>
+
+            <span class="tag"
+              data-it="Mediterranea"
+              data-en="Mediterranean"
+            >Mediterranea</span>
+
+            <span class="tag"
+              data-it="Vegetariano"
+              data-en="Vegetarian"
+            >Vegetariano</span>
+
+            <span class="tag"
+              data-it="Agriturismo"
+              data-en="Farmhouse"
+            >Agriturismo</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://podereilfornacino.org/">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://podereilfornacino.org/"
+              data-it="Sito web"
+              data-en="Website"
+            >
               Sito web
             </a>
-            <a target="_blank" rel="noopener" href="https://www.instagram.com/podereilfornacino/">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.instagram.com/podereilfornacino/"
+              data-it="Instagram"
+              data-en="Instagram"
+            >
               Instagram
             </a>
+
           </div>
+
         </article>
 
-        <!-- 6 -->
-        <article class="card" data-zone="santa-luce" data-type="ristorante" data-search="mangia bevi ristobar santa luce italiana mediterranea toscana">
+
+        <!-- =================================================
+             9 - MANGIA & BEVI
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="ristorante"
+          data-search="mangia bevi ristobar santa luce italiana italian mediterranea mediterranean toscana tuscan colazione breakfast cena dinner"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 4,5/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,5/5
+              </span>
+
             </div>
-            <h3>Mangia &amp; Bevi Ristobar</h3>
-            <div class="address">Piazza Luigi Pellegrini 2, 56040 Santa Luce (PI)</div>
+
+
+            <h3>
+              Mangia &amp; Bevi Ristobar
+            </h3>
+
+
+            <div class="address">
+              Piazza Luigi Pellegrini 2,
+              56040 Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Locale centrale e versatile, con cucina italiana, mediterranea e
-            toscana. È adatto a colazione, pranzo o cena ed è una soluzione
-            pratica se vuoi mangiare direttamente nel borgo di Santa Luce.
+
+          <p
+            class="description"
+            data-it="Locale centrale e versatile, con cucina italiana, mediterranea e toscana. È adatto a colazione, pranzo o cena ed è una soluzione pratica se vuoi mangiare direttamente nel borgo di Santa Luce."
+            data-en="A central and versatile restaurant offering Italian, Mediterranean and Tuscan cuisine. It is suitable for breakfast, lunch or dinner and is a practical option if you want to eat directly in the village of Santa Luce."
+          >
+            Locale centrale e versatile,
+            con cucina italiana, mediterranea e toscana.
+            È adatto a colazione, pranzo o cena
+            ed è una soluzione pratica se vuoi mangiare
+            direttamente nel borgo di Santa Luce.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Toscana</span>
-            <span class="tag">Mediterranea</span>
-            <span class="tag">Colazione</span>
-            <span class="tag">Cena</span>
+
+            <span class="tag"
+              data-it="Toscana"
+              data-en="Tuscan"
+            >Toscana</span>
+
+            <span class="tag"
+              data-it="Mediterranea"
+              data-en="Mediterranean"
+            >Mediterranea</span>
+
+            <span class="tag"
+              data-it="Colazione"
+              data-en="Breakfast"
+            >Colazione</span>
+
+            <span class="tag"
+              data-it="Cena"
+              data-en="Dinner"
+            >Cena</span>
+
           </div>
+
 
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/search?q=Mangia+%26+Bevi+Ristobar+Santa+Luce">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/search?q=Mangia+%26+Bevi+Ristobar+Santa+Luce"
+              data-it="Cerca online"
+              data-en="Search online"
+            >
               Cerca online
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mangia+%26+Bevi+Ristobar%2C+Piazza+Luigi+Pellegrini+2%2C+Santa+Luce+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Mangia+%26+Bevi+Ristobar%2C+Piazza+Luigi+Pellegrini+2%2C+Santa+Luce+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
-        <!-- 7 -->
-        <article class="card" data-zone="santa-luce" data-type="pizza" data-search="gino gina santa luce pizza cacciucco carne pasta">
+
+        <!-- =================================================
+             10 - DA GINO E GINA
+        ================================================== -->
+
+        <article
+          class="card"
+          data-zone="santa-luce"
+          data-type="pizza"
+          data-search="gino gina santa luce pizza pizzeria trattoria cacciucco carne meat pasta pesce seafood"
+        >
+
           <div class="card-top">
+
             <div class="badge-row">
-              <span class="badge zone">Santa Luce</span>
-              <span class="rating">★ 4,3/5</span>
+
+              <span
+                class="badge zone"
+                data-it="Santa Luce"
+                data-en="Santa Luce"
+              >
+                Santa Luce
+              </span>
+
+              <span class="rating">
+                ★ 4,3/5
+              </span>
+
             </div>
-            <h3>Da Gino e Gina</h3>
-            <div class="address">Piazza Rimembranza 11, 56040 Santa Luce (PI)</div>
+
+
+            <h3>
+              Da Gino e Gina
+            </h3>
+
+
+            <div class="address">
+              Piazza Rimembranza 11,
+              56040 Santa Luce (PI)
+            </div>
+
           </div>
 
-          <p class="description">
-            Trattoria e pizzeria nel centro di Santa Luce. Tra i piatti associati
-            al locale compaiono pasta, pizza, carne e specialità della cucina
+
+          <p
+            class="description"
+            data-it="Trattoria e pizzeria nel centro di Santa Luce. Tra i piatti associati al locale compaiono pasta, pizza, carne e specialità della cucina toscana e di mare come il cacciucco."
+            data-en="A trattoria and pizzeria in the center of Santa Luce. The menu includes pasta, pizza, meat and traditional Tuscan and seafood dishes such as cacciucco."
+          >
+            Trattoria e pizzeria nel centro di Santa Luce.
+            Tra i piatti associati al locale compaiono
+            pasta, pizza, carne e specialità della cucina
             toscana e di mare come il cacciucco.
           </p>
 
+
           <div class="tags">
-            <span class="tag">Pizza</span>
-            <span class="tag">Trattoria</span>
-            <span class="tag">Carne</span>
-            <span class="tag">Pesce</span>
+
+            <span class="tag"
+              data-it="Pizza"
+              data-en="Pizza"
+            >Pizza</span>
+
+            <span class="tag"
+              data-it="Trattoria"
+              data-en="Trattoria"
+            >Trattoria</span>
+
+            <span class="tag"
+              data-it="Carne"
+              data-en="Meat"
+            >Carne</span>
+
+            <span class="tag"
+              data-it="Pesce"
+              data-en="Seafood"
+            >Pesce</span>
+
           </div>
 
+
           <div class="card-actions">
-            <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/search?q=Da+Gino+e+Gina+Santa+Luce">
+
+            <a
+              class="primary"
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/search?q=Da+Gino+e+Gina+Santa+Luce"
+              data-it="Cerca online"
+              data-en="Search online"
+            >
               Cerca online
             </a>
-            <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Bar+Trattoria+Pizzeria+Da+Gino+E+Gina%2C+Piazza+Rimembranza+11%2C+Santa+Luce+PI">
+
+
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Bar+Trattoria+Pizzeria+Da+Gino+E+Gina%2C+Piazza+Rimembranza+11%2C+Santa+Luce+PI"
+              data-it="Mappa"
+              data-en="Map"
+            >
               Mappa
             </a>
+
           </div>
+
         </article>
 
       </div>
 
-      <div id="empty" class="empty">
+
+      <!-- ===================================================
+           EMPTY
+      ==================================================== -->
+
+      <div
+        id="empty"
+        class="empty"
+        data-it="Nessun posto corrisponde alla ricerca."
+        data-en="No places match your search."
+      >
         Nessun posto corrisponde alla ricerca.
       </div>
 
+
+      <!-- ===================================================
+           NOTE
+      ==================================================== -->
+
       <div id="info" class="note">
-        <strong>Nota:</strong> valutazioni, orari e presenza di profili social possono
-        cambiare. Prima di andare conviene verificare sempre il sito o il contatto
-        del locale, soprattutto nei giorni festivi o in bassa stagione.
+
+        <strong
+          data-it="Nota:"
+          data-en="Note:"
+        >
+          Nota:
+        </strong>
+
+        <span
+          data-it="valutazioni, orari e presenza di profili social possono cambiare. Prima di andare conviene verificare sempre il sito o il contatto del locale, soprattutto nei giorni festivi o in bassa stagione."
+          data-en="ratings, opening hours and social media profiles may change. We recommend checking the restaurant's website or contact details before visiting, especially on holidays or during the low season."
+        >
+          valutazioni, orari e presenza di profili social possono
+          cambiare. Prima di andare conviene verificare sempre
+          il sito o il contatto del locale, soprattutto nei giorni
+          festivi o in bassa stagione.
+        </span>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
   <footer>
+
+    <strong
+      data-it="Mangiare tra Orciano Pisano e Santa Luce"
+      data-en="Eating around Orciano Pisano and Santa Luce"
+    >
+      Mangiare tra Orciano Pisano e Santa Luce
+    </strong>
+
+    <br>
+
+    <span
+      data-it="Pagina realizzata in HTML/CSS/JavaScript puro, senza framework."
+      data-en="Page created with pure HTML/CSS/JavaScript, without frameworks."
+    >
+      Pagina realizzata in HTML/CSS/JavaScript puro,
+      senza framework.
+    </span>
+
   </footer>
 
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
   <script>
-    const cards = [...document.querySelectorAll(".card")];
-    const filters = [...document.querySelectorAll(".filter")];
-    const searchInput = document.getElementById("search");
-    const empty = document.getElementById("empty");
+
+    /* =========================================================
+       ELEMENTI
+    ========================================================= */
+
+    const cards =
+      [...document.querySelectorAll(".card")];
+
+    const filters =
+      [...document.querySelectorAll(".filter")];
+
+    const searchInput =
+      document.getElementById("search");
+
+    const empty =
+      document.getElementById("empty");
+
+    const languageToggle =
+      document.getElementById("languageToggle");
+
 
     let activeFilter = "all";
 
+
+    /* =========================================================
+       LINGUA
+    ========================================================= */
+
+    let currentLanguage =
+      localStorage.getItem("language") || "it";
+
+
+    /* =========================================================
+       CAMBIO TESTI
+    ========================================================= */
+
+    function translatePage(language) {
+
+      currentLanguage = language;
+
+
+      /* Lingua HTML */
+
+      document.documentElement.lang =
+        language;
+
+
+      /* Classe CSS */
+
+      document.body.classList.toggle(
+        "english",
+        language === "en"
+      );
+
+
+      /* Tutti gli elementi traducibili */
+
+      document
+        .querySelectorAll("[data-it][data-en]")
+        .forEach(element => {
+
+          element.textContent =
+            element.dataset[language];
+
+        });
+
+
+      /* Placeholder ricerca */
+
+      searchInput.placeholder =
+        searchInput.dataset[
+          `placeholder-${language}`
+        ];
+
+
+      searchInput.setAttribute(
+        "aria-label",
+        language === "it"
+          ? "Cerca un posto"
+          : "Search for a place"
+      );
+
+
+      /* Pulsante lingua */
+
+      languageToggle.textContent =
+        language === "it"
+          ? "🇬🇧 EN"
+          : "🇮🇹 IT";
+
+
+      /* Titolo pagina */
+
+      document.title =
+        language === "it"
+          ? "Mangiare tra Orciano Pisano e Santa Luce"
+          : "Eating around Orciano Pisano and Santa Luce";
+
+
+      /* Meta description */
+
+      document
+        .querySelector('meta[name="description"]')
+        .setAttribute(
+          "content",
+          language === "it"
+            ? "Guida ai migliori posti dove mangiare tra Orciano Pisano, Pieve di Santa Luce e Santa Luce, Toscana."
+            : "Guide to the best places to eat around Orciano Pisano, Pieve di Santa Luce and Santa Luce, Tuscany."
+        );
+
+
+      /* Salva preferenza */
+
+      localStorage.setItem(
+        "language",
+        language
+      );
+
+    }
+
+
+    /* =========================================================
+       FILTRI
+    ========================================================= */
+
     function matchesFilter(card) {
-      if (activeFilter === "all") return true;
 
-      const zone = card.dataset.zone;
-      const type = card.dataset.type;
-
-      if (activeFilter === "orciano") return zone === "orciano";
-      if (activeFilter === "pieve") return zone === "pieve";
-      if (activeFilter === "santa-luce") return zone === "santa-luce";
-      if (activeFilter === "ristorante") return type === "ristorante";
-      if (activeFilter === "pizza") return type === "pizza";
-      if (activeFilter === "agriturismo") {
-        return card.dataset.search.includes("agriturismo");
+      if (activeFilter === "all") {
+        return true;
       }
+
+
+      const zone =
+        card.dataset.zone;
+
+      const type =
+        card.dataset.type;
+
+
+      if (
+        activeFilter === "orciano"
+      ) {
+        return zone === "orciano";
+      }
+
+
+      if (
+        activeFilter === "pieve"
+      ) {
+        return zone === "pieve";
+      }
+
+
+      if (
+        activeFilter === "santa-luce"
+      ) {
+        return zone === "santa-luce";
+      }
+
+
+      if (
+        activeFilter === "ristorante"
+      ) {
+        return type === "ristorante";
+      }
+
+
+      if (
+        activeFilter === "pizza"
+      ) {
+        return type === "pizza";
+      }
+
+
+      if (
+        activeFilter === "agriturismo"
+      ) {
+
+        return (
+          type === "agriturismo" ||
+          card.dataset.search.includes(
+            "agriturismo"
+          )
+        );
+
+      }
+
 
       return true;
     }
 
+
+    /* =========================================================
+       AGGIORNA CARD
+    ========================================================= */
+
     function updateCards() {
-      const term = searchInput.value.trim().toLowerCase();
+
+      const term =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
       let visible = 0;
 
-      cards.forEach(card => {
-        const text = (card.dataset.search + " " + card.textContent).toLowerCase();
-        const matchesSearch = !term || text.includes(term);
-        const show = matchesFilter(card) && matchesSearch;
 
-        card.style.display = show ? "flex" : "none";
-        if (show) visible++;
+      cards.forEach(card => {
+
+        const text =
+          (
+            card.dataset.search +
+            " " +
+            card.textContent
+          ).toLowerCase();
+
+
+        const matchesSearch =
+          !term ||
+          text.includes(term);
+
+
+        const show =
+          matchesFilter(card) &&
+          matchesSearch;
+
+
+        card.style.display =
+          show
+            ? "flex"
+            : "none";
+
+
+        if (show) {
+          visible++;
+        }
+
       });
 
-      empty.style.display = visible ? "none" : "block";
+
+      empty.style.display =
+        visible === 0
+          ? "block"
+          : "none";
+
     }
 
+
+    /* =========================================================
+       CLICK FILTRI
+    ========================================================= */
+
     filters.forEach(filter => {
-      filter.addEventListener("click", () => {
-        filters.forEach(item => item.classList.remove("active"));
-        filter.classList.add("active");
-        activeFilter = filter.dataset.filter;
-        updateCards();
-      });
+
+      filter.addEventListener(
+        "click",
+        () => {
+
+          filters.forEach(item => {
+
+            item.classList.remove(
+              "active"
+            );
+
+          });
+
+
+          filter.classList.add(
+            "active"
+          );
+
+
+          activeFilter =
+            filter.dataset.filter;
+
+
+          updateCards();
+
+        }
+      );
+
     });
 
-    searchInput.addEventListener("input", updateCards);
+
+    /* =========================================================
+       RICERCA
+    ========================================================= */
+
+    searchInput.addEventListener(
+      "input",
+      updateCards
+    );
+
+
+    /* =========================================================
+       CAMBIO LINGUA
+    ========================================================= */
+
+    languageToggle.addEventListener(
+      "click",
+      () => {
+
+        const newLanguage =
+          currentLanguage === "it"
+            ? "en"
+            : "it";
+
+
+        translatePage(
+          newLanguage
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       AVVIO
+    ========================================================= */
+
+    translatePage(
+      currentLanguage
+    );
+
+
     updateCards();
+
   </script>
 
+
 </body>
+
 </html>
